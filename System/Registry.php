@@ -1,9 +1,16 @@
 <?php
-
-class System_Registry {
+class System_Registry
+{
+    /**
+     * Registry hash-table
+     *
+     * @var array
+     */
+    protected static $_registry = [];
+ 
     /**
      * Put item into the registry
-     *
+     * 
      * @param string $key
      * @param mixed $item
      * @throws Exception
@@ -20,16 +27,10 @@ class System_Registry {
             self::$_registry[$key] = $item;
         }
     }
-
-    /**
-     * Registry hash-table
-     *
-     * @var array
-     */
-    protected static $_registry =[];
+    
     /**
      * Get item by key
-     *
+     * 
      * @param string $key
      * @return false|mixed
      */
@@ -38,8 +39,25 @@ class System_Registry {
         if (array_key_exists($key, self::$_registry)) {
             return self::$_registry[$key];
         }
-
+ 
         return false;
     }
+ 
+    /**
+     * Remove item from the regisry
+     * 
+     * @param string $key
+     * @return void
+     */
+    public static function remove($key)
+    {
+        if (array_key_exists($key, self::$_registry)) {
+            unset(self::$_registry[$key]);
+        }
+    }
+ 
+    protected function __construct()
+    {
+ 
+    }
 }
-
