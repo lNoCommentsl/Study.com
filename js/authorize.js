@@ -1,17 +1,16 @@
-//JQ Работет толко полной подгрузки библиотеки!
 $(document).ready(function() {
-    $('#loginForm').on('click', 'input[name=register]',function(e) {
-  //Событие при нажатии клавиши  $('#loginForm').on('keyup', 'input[name=email]',function(e) {
+    $('#loginForm').on('click', 'input[name=register]', function(e){
         e.preventDefault();
-
+       
         $.post(
-            'authorize/register',
-            {
-                email:      $('input[name=email]').val(),
+            '/authorize/register',
+            { 
+                email:      $('input[name=email]').val(), 
                 password:   $('input[name=password]').val(),
-                save:    $('#save_checkbox').is(':checked')
+                save:       $('#save_checkbox').is(':checked')
             },
-            function (data){
+            function(data){
+                
                 if(data.error !== undefined) {
                     $('#error').html(data.error);
                 }
@@ -22,7 +21,7 @@ $(document).ready(function() {
                     $('#error').empty();
                 }
             },
-            'json'
-        )
-    })
+           'json'
+        );
+    });
 });

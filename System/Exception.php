@@ -1,5 +1,4 @@
 <?php
-
 class System_Exception extends Exception
 {
     const ALREADY_EXISTS    = 1;

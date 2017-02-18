@@ -1,15 +1,14 @@
 <?php
-
 class System_View
 {
     /**
      *
      * @var array
      */
-    private $_params = array();
-
+    private $_params = [];
+    
     /**
-     *
+     * 
      * @param string $key
      * @param mixed $value
      */
@@ -18,9 +17,9 @@ class System_View
         $key = (string)$key;
         $this->_params[$key] = $value;
     }
-
+    
     /**
-     *
+     * 
      * @param string $key
      * @return mixed
      */
